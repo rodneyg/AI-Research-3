@@ -21,7 +21,7 @@ The two models found all four recorded sign-offs in both conditions. Of the ten 
 
 Switch between the two footer conditions to see the packet, the recorded answers, and the model results. The example is the first test packet with an older approval, shown to illustrate a disagreement we found in the pilot. The packet group has an accessible name, and the results chart reflows on narrow screens.
 
-If the hosted demo is unavailable, build it locally using the commands below or read the [recorded answers and results](results/summary.json).
+If the hosted demo is unavailable, build it locally using the commands below or read the [example answers and aggregate results](results/summary.json). The [raw recordings](results/raw/) contain all 112 responses.
 
 ## How we tested
 
@@ -35,7 +35,7 @@ We calculated 95% Wilson intervals and two-sided exact McNemar tests on the matc
 
 ## Reproduce
 
-Use Python 3.10 or later for the study replay. Use Node.js 24 and npm to build the demo, as in CI.
+Use Python 3.10 or later for the study replay. Python must have access to the IANA time zone database for `America/Detroit`. If your system does not provide it, install the Python `tzdata` package in your environment. Use Node.js 24 and npm to build the demo, as in CI.
 
 ```sh
 python3 -m unittest discover -s tests &&
@@ -44,7 +44,7 @@ python3 -m unittest discover -s tests &&
   (cd demo && npm ci && npm run build)
 ```
 
-The default Python run reads the recorded API responses and requires no API access. It stops if a recorded response is missing or its request does not match the experiment design. For an offline replay, restore the matching cache files from `results/raw/` in the same Git revision.
+The default Python run reads the recorded API responses and requires no API access. Replay stops if a cache entry is missing, appears twice, falls outside the study design, or has a request fingerprint that differs from the one the replay computes. To recover from these errors, restore the matching files from `results/raw/` in the same Git revision.
 
 The static build reads the resulting summary and writes the page to `demo/out/index.html`. From the repository root, serve the output with `python3 -m http.server 0 --bind 127.0.0.1 --directory demo/out` and open the local address printed by the server.
 
