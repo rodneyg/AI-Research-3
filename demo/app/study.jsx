@@ -88,9 +88,9 @@ export function Study({ summary }) {
           </div>
 
           <div className="lab-grid">
-            <div className="packet" aria-label={`Packet ${summary.example.code}`}>
+            <div className="packet" role="group" aria-labelledby="packet-title">
               <div className="packet-heading">
-                <span>Packet {summary.example.code}</span>
+                <span id="packet-title">Packet {summary.example.code}</span>
                 <span>Current revision</span>
               </div>
               <div className="pages">

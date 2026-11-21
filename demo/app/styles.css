@@ -88,6 +88,12 @@ footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule)
   .report { gap: 26px; }
   .chart { --label: 86px; --number: 100px; }
 }
+@media (max-width: 375px) {
+  .axis { margin-inline: 0; }
+  .chart-row { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; }
+  .chart-number { grid-area: 1 / 2; }
+  .track { grid-area: 2 / 1 / auto / -1; }
+}
 @media (prefers-reduced-motion: reduce) {
   .meter span { transition: none; }
 }
