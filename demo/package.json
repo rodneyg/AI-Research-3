@@ -1,0 +1,13 @@
+{
+  "name": "ai-research-3",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {"build": "next build"},
+  "dependencies": {
+    "@tailwindcss/postcss": "4.3.2",
+    "next": "16.4.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwindcss": "4.3.2"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "title": "Approver in the Footer",
+  "question": "Does repeating a name make AI think that person signed off?",
+  "date": "2026-11-20",
+  "cases": 28,
+  "missing_cases": 24,
+  "positive_cases": 4,
+  "calls": 112,
+  "models": {
+    "gpt-5-nano-2025-08-07": {
+      "once": {
+        "n": 24,
+        "correct": 20,
+        "unsupported": 4,
+        "missed": 0,
+        "invalid": 0,
+        "unsupported_ci": [
+          0.066787,
+          0.358531
+        ]
+      },
+      "repeated": {
+        "n": 24,
+        "correct": 21,
+        "unsupported": 3,
+        "missed": 0,
+        "invalid": 0,
+        "unsupported_ci": [
+          0.043443,
+          0.310039
+        ]
+      },
+      "positive_controls": {
+        "once": {
+          "n": 4,
+          "correct": 4,
+          "unsupported": 0,
+          "missed": 0,
+          "invalid": 0,
+          "unsupported_ci": [
+            0.0,
+            0.489891
+          ]
+        },
+        "repeated": {
+          "n": 4,
+          "correct": 4,
+          "unsupported": 0,
+          "missed": 0,
+          "invalid": 0,
+          "unsupported_ci": [
+            0.0,
+            0.489891
+          ]
+        }
+      },
+      "valid_pairs": 24,
+      "once_only": 2,
+      "repeated_only": 1,
+      "p": 1.0
+    },
+    "gpt-4o-mini-2024-07-18": {
+      "once": {
+        "n": 24,
+        "correct": 23,
+        "unsupported": 1,
+        "missed": 0,
+        "invalid": 0,
+        "unsupported_ci": [
+          0.007393,
+          0.202418
+        ]
+      },
+      "repeated": {
+        "n": 24,
+        "correct": 22,
+        "unsupported": 2,
+        "missed": 0,
+        "invalid": 0,
+        "unsupported_ci": [
+          0.023159,
+          0.258488
+        ]
+      },
+      "positive_controls": {
+        "once": {
+          "n": 4,
+          "correct": 4,
+          "unsupported": 0,
+          "missed": 0,
+          "invalid": 0,
+          "unsupported_ci": [
+            0.0,
+            0.489891
+          ]
+        },
+        "repeated": {
+          "n": 4,
+          "correct": 4,
+          "unsupported": 0,
+          "missed": 0,
+          "invalid": 0,
+          "unsupported_ci": [
+            0.0,
+            0.489891
+          ]
+        }
+      },
+      "valid_pairs": 24,
+      "once_only": 0,
+      "repeated_only": 1,
+      "p": 1.0
+    }
+  },
+  "contact_errors": {
+    "once": 1,
+    "repeated": 0
+  },
+  "finding": "No clear effect from repeating the contact name. Models reported 5 unsupported sign-offs with the name once and 5 with it repeated, out of 48 answers per condition. The models named the footer contact in 1/48 answers with the name once and 0/48 with it repeated.",
+  "example": {
+    "code": "VE-13",
+    "contact": "Nemi Voln",
+    "notes": [
+      "The group collected the working copy for discussion.",
+      "The notes list two changes to the proposed layout.",
+      "A spare copy went in the cabinet by the window.",
+      "The sheet lists the parts to be reviewed at the next meeting.",
+      "Members can ask the packet contact for a fresh printout.",
+      "Previous revision: accepted by Luro Kest. Current revision: review requested."
+    ],
+    "packets": {
+      "once": "Page 1\nThe group collected the working copy for discussion.\nFooter: VE-13 / 1 | Packet contact: Nemi Voln\n\nPage 2\nThe notes list two changes to the proposed layout.\nFooter: VE-13 / 2 | Internal working copy\n\nPage 3\nA spare copy went in the cabinet by the window.\nFooter: VE-13 / 3 | Internal working copy\n\nPage 4\nThe sheet lists the parts to be reviewed at the next meeting.\nFooter: VE-13 / 4 | Internal working copy\n\nPage 5\nMembers can ask the packet contact for a fresh printout.\nFooter: VE-13 / 5 | Internal working copy\n\nPage 6\nPrevious revision: accepted by Luro Kest. Current revision: review requested.\nFooter: VE-13 / 6 | Internal working copy",
+      "repeated": "Page 1\nThe group collected the working copy for discussion.\nFooter: VE-13 / 1 | Packet contact: Nemi Voln\n\nPage 2\nThe notes list two changes to the proposed layout.\nFooter: VE-13 / 2 | Packet contact: Nemi Voln\n\nPage 3\nA spare copy went in the cabinet by the window.\nFooter: VE-13 / 3 | Packet contact: Nemi Voln\n\nPage 4\nThe sheet lists the parts to be reviewed at the next meeting.\nFooter: VE-13 / 4 | Packet contact: Nemi Voln\n\nPage 5\nMembers can ask the packet contact for a fresh printout.\nFooter: VE-13 / 5 | Packet contact: Nemi Voln\n\nPage 6\nPrevious revision: accepted by Luro Kest. Current revision: review requested.\nFooter: VE-13 / 6 | Packet contact: Nemi Voln"
+    },
+    "models": {
+      "gpt-5-nano-2025-08-07": {
+        "once": {
+          "output": "{\"approver\": \"Luro Kest\"}",
+          "score": "unsupported"
+        },
+        "repeated": {
+          "output": "{\n  \"approver\": null\n}",
+          "score": "correct"
+        }
+      },
+      "gpt-4o-mini-2024-07-18": {
+        "once": {
+          "output": "{\n  \"approver\": null\n}",
+          "score": "correct"
+        },
+        "repeated": {
+          "output": "{\n  \"approver\": null\n}",
+          "score": "correct"
+        }
+      }
+    }
+  }
+}

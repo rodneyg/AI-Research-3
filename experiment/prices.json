@@ -1,0 +1,19 @@
+{
+  "source": "https://developers.openai.com/api/docs/pricing",
+  "checked_et": "2026-11-20",
+  "unit": "USD per million tokens",
+  "model_rates": {
+    "gpt-5-nano-2025-08-07": {
+      "source": "https://developers.openai.com/api/docs/models/gpt-5-nano",
+      "input": 0.05,
+      "cached_input": 0.005,
+      "output": 0.40
+    },
+    "gpt-4o-mini-2024-07-18": {
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini",
+      "input": 0.15,
+      "cached_input": 0.075,
+      "output": 0.60
+    }
+  }
+}

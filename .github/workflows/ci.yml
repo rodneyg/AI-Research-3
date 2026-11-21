@@ -1,0 +1,30 @@
+name: Study checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  replay-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: demo/package-lock.json
+      - name: Test scorer and replay responses
+        run: |
+          python3 -m unittest discover -s tests
+          python3 -m experiment.run
+          git diff --exit-code -- results
+      - name: Build demo
+        working-directory: demo
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+          node -e 'if (!require("node:fs").readFileSync("out/index.html", "utf8").includes("Approver in the Footer")) process.exit(1)'
