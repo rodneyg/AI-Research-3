@@ -19,7 +19,9 @@ The two models found all four recorded sign-offs in both conditions. Of the ten 
 
 [Explore Simulation](https://ai-research-3.vercel.app)
 
-Switch between the two footer conditions to see the packet, the recorded answers, and the model results. The example is the first test packet with an older approval, shown to illustrate a disagreement we found in the pilot.
+Switch between the two footer conditions to see the packet, the recorded answers, and the model results. The example is the first test packet with an older approval, shown to illustrate a disagreement we found in the pilot. The packet group has an accessible name, and the results chart reflows on narrow screens.
+
+If the hosted demo is unavailable, build it locally using the commands below or read the [recorded answers and results](results/summary.json).
 
 ## How we tested
 
@@ -36,15 +38,17 @@ We calculated 95% Wilson intervals and two-sided exact McNemar tests on the matc
 Use Python 3.10 or later for the study replay. Use Node.js 24 and npm to build the demo, as in CI.
 
 ```sh
-python3 -m unittest discover -s tests
-python3 -m experiment.run
-git diff --exit-code -- results
-cd demo
-npm ci
-npm run build
+python3 -m unittest discover -s tests &&
+  python3 -m experiment.run &&
+  git diff --exit-code HEAD -- results &&
+  (cd demo && npm ci && npm run build)
 ```
 
-The default Python run reads the recorded API responses and requires no API access. The static demo reads the resulting summary at build time. Run `python3 -m experiment.run --live` with an OpenAI API key in the environment to fill any missing cache entries. Cached requests are checked against the experiment design before use.
+The default Python run reads the recorded API responses and requires no API access. It stops if a recorded response is missing or its request does not match the experiment design. For an offline replay, restore the matching cache files from `results/raw/` in the same Git revision.
+
+The static build reads the resulting summary and writes the page to `demo/out/index.html`. From the repository root, serve the output with `python3 -m http.server 0 --bind 127.0.0.1 --directory demo/out` and open the local address printed by the server.
+
+The optional `python3 -m experiment.run --live` mode requires an OpenAI API key and can make paid calls for missing cache entries.
 
 Recorded November 20, 2026, ET. **112 model calls, $0.00379780** at the standard API rates. [Token usage and unit prices](results/spend.json).
 
