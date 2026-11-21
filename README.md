@@ -27,11 +27,13 @@ We made 28 six-page club packets with known answers. In 24, nobody had approved 
 
 The first version named the contact on page one and used a standard working-copy footer on the other five pages. The second version named the same contact on all six pages. The notes, page order, and question stayed the same. We changed the footer phrase as well as the number of times the name appeared, so the comparison applies to those two footer designs.
 
-We asked the models for a name or JSON null. On packets without an approval, any name counted as an unsupported sign-off. Invalid responses had a separate score. Both models returned valid answers on every packet. We shuffled the call order with seed 2223. GPT-4o mini used temperature 0 and best-effort API seed 2223. GPT-5 nano used minimal reasoning with the model's default temperature and no seed.
+We asked the models for a JSON object with one key, `approver`, whose value was a name or `null`. On packets without an approval, any name counted as an unsupported sign-off. Invalid responses had a separate score. Both models returned valid answers on every packet. We shuffled the call order with seed 2223. GPT-4o mini used temperature 0 and best-effort API seed 2223. GPT-5 nano used minimal reasoning with the model's default temperature and no seed.
 
 We calculated 95% Wilson intervals and two-sided exact McNemar tests on the matched packets for each model. This small pilot reused templates, so those intervals and tests are descriptive. The pooled counts are for display and share the same cases across models.
 
 ## Reproduce
+
+Use Python 3.10 or later for the study replay. Use Node.js 24 and npm to build the demo, as in CI.
 
 ```sh
 python3 -m unittest discover -s tests
@@ -48,6 +50,7 @@ Recorded November 20, 2026, ET. **112 model calls, $0.00379780** at the standard
 
 ## Sources
 
+- [Changelog](CHANGELOG.md)
 - [Prior-work searches and decisions](PRIOR_WORK_SEARCH.md)
 - [Recorded summary](results/summary.json)
 - [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
