@@ -4,7 +4,7 @@ Search run November 20, 2026 ET. The first ten questions are new. Questions 11 a
 
 ## Decision
 
-**Approver in the Footer** passed the search for a matching evaluation, repository, issue or project. The specific comparison is one versus six mentions of an administrative contact in an otherwise identical fictional packet, scored against whether that person approved the current revision. Search coverage cannot rule out unpublished or unindexed work.
+**Approver in the Footer** passed the search for a matching evaluation, repository, issue or project. The study compares two footer designs. One names the packet contact on page one and uses a working-copy label on the other pages. The other names the contact on all six pages. The page notes and sign-off question stay the same. Search coverage cannot rule out unpublished or unindexed work.
 
 The closest sources read were the [Document Parsing Protocol signature guide](https://parse-protocol-explore.pr.staging.llamaindex.ai/guide/text-2-marks-on-the-page-signatures), which distinguishes actual marks from printed names, [policyAIengine](https://github.com/taomar/policyAIengine/blob/main/docs/specs/pdf-ingestion-architecture-v1.md), which handles repeated page furniture when stitching paragraphs, and [AgentHire-Bench](https://openreview.net/pdf?id=GrMXHoBp3h), which audits workflow records with missing approval evidence. The [docmatch benchmark](https://github.com/franklinmdev/docmatch) evaluates extraction of repeated billing fields. None compares footer name repetition with a sign-off answer.
 
