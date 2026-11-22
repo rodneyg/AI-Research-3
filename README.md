@@ -17,7 +17,7 @@ The two models found all four recorded sign-offs in both conditions. Of the ten 
 
 ## Demo
 
-[Build and open the local demo](#reproduce). The [hosted demo](https://ai-research-3.vercel.app) returned HTTP 402 when checked on November 21, 2026.
+[Open the interactive demo on GitHub Pages](https://rodneyg.github.io/AI-Research-3/) or [build and open it locally](#reproduce).
 
 Switch between the two footer conditions to see the packet, the recorded answers, and the model results. The example is the first test packet with an older approval, shown to illustrate a disagreement we found in the pilot. The packet group uses its visible title as its accessible name. At widths of 375 CSS pixels or less, each chart bar sits below its label and count.
 
