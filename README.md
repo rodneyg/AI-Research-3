@@ -17,11 +17,11 @@ The two models found all four recorded sign-offs in both conditions. Of the ten 
 
 ## Demo
 
-[Explore Simulation](https://ai-research-3.vercel.app)
+[Build and open the local demo](#reproduce). The [hosted demo](https://ai-research-3.vercel.app) returned HTTP 402 when checked on November 21, 2026.
 
-Switch between the two footer conditions to see the packet, the recorded answers, and the model results. The example is the first test packet with an older approval, shown to illustrate a disagreement we found in the pilot. The packet group has an accessible name, and the results chart reflows on narrow screens.
+Switch between the two footer conditions to see the packet, the recorded answers, and the model results. The example is the first test packet with an older approval, shown to illustrate a disagreement we found in the pilot. The packet group uses its visible title as its accessible name. At widths of 375 CSS pixels or less, each chart bar sits below its label and count.
 
-If the hosted demo is unavailable, build it locally using the commands below or read the [example answers and aggregate results](results/summary.json). The [raw recordings](results/raw/) contain all 112 responses.
+You can also read the [example answers and aggregate results](results/summary.json) directly. The [raw recordings](results/raw/) contain all 112 responses.
 
 ## How we tested
 
