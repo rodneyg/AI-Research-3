@@ -1,5 +1,13 @@
 # Approver in the Footer
 
+## Live demo screenshots
+
+The packet view shows the current revision and its footer. The results view shows the recorded answers for the selected footer condition.
+
+![Interactive demo showing packet VE-13 and its current revision footer](docs/screenshots/packet-view.png)
+
+![Interactive demo showing the recorded model results for packet VE-13](docs/screenshots/results-view.png)
+
 ## Question
 
 Does repeating a name make AI think that person signed off?
