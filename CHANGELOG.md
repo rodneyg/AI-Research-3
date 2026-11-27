@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-27
+
+- Added current screenshots of the interactive demo to the README. [PR #9](https://github.com/rodneyg/AI-Research-3/pull/9)
+
 ## 2026-11-21
 
 - The interactive study demo is available on [GitHub Pages](https://rodneyg.github.io/AI-Research-3/). [PR #7](https://github.com/rodneyg/AI-Research-3/pull/7)
